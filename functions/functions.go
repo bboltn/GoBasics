@@ -1,8 +1,59 @@
 package main
 
 /**
- functions
+FUNCTIONS
 **/
 func main() {
-	println("uo")
+
+	// super basic function
+	helloGDG("HI GDG!")
+
+	// function with parameters and return value
+	result := isEqual(1, 2)
+	println("isEqual: ", result)
+
+	// named return type
+	value := concat("Let's combine ", "words!")
+	println("Concat: ", value)
+
+	// multiple return types
+	name, found := getUserName("1")
+	println("Name: ", name)
+	println("Found: ", found)
+
+	// multiple return types
+	name, found = getUserName("2")
+	println("Name (empty!): ", name)
+	println("Found (nope!): ", found)
 }
+
+func helloGDG(message string) {
+	println(message)
+}
+
+func isEqual(a, b int) bool {
+	return a == b
+}
+
+func concat(a, b string) (combinedValue string) {
+	combinedValue = a + b
+	return combinedValue
+}
+
+func getUserName(userID string) (string, bool) {
+	if userID == "1" {
+		return "Brian", true
+	}
+
+	return "", false
+}
+
+/*
+HI GDG!
+isEqual:  false
+Concat:  Let's combine words!
+Name:  Brian
+Found:  true
+Name (nope!):
+Found (nope!):  false
+*/

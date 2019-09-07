@@ -89,6 +89,18 @@ func main() {
 	// short declarations
 	z, y, x := 4, 5, "hey!"
 	println("Short declarations: ", z, y, x)
+
+	const (
+		pi = 3.1415926535
+	)
+	println("Const: ", pi)
+	//pi = pi + 1 //error during build
+
+	// default values
+	var q int    //0
+	var w bool   //false
+	var e string // ''
+	println("Defaults: ", q, w, e)
 }
 
 /*
@@ -101,4 +113,5 @@ Rune:  =
 Floats:  +3.234888e+000 +3.234888e+000
 Init vars:  1 2 3
 Short declarations:  4 5 hey!
+Const:  +3.141593e+000
 */
