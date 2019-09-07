@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
 FUNCTIONS
 **/
@@ -25,6 +27,18 @@ func main() {
 	name, found = getUserName("2")
 	println("Name (empty!): ", name)
 	println("Found (nope!): ", found)
+
+	// using functions like variables with closures
+	characters := []string{"Major", "Batou", "Togusa"}
+	villians := []string{"Laughing Man", "Individual Eleven"}
+	gitsCharacters := func(faction string) []string {
+		if faction == "section 9" {
+			return characters
+		}
+		return villians
+	}
+	fmt.Println(gitsCharacters("section 9"))
+	takesAFunction(gitsCharacters)
 }
 
 func helloGDG(message string) {
@@ -46,6 +60,10 @@ func getUserName(userID string) (string, bool) {
 	}
 
 	return "", false
+}
+
+func takesAFunction(fn func(string) []string) {
+	fmt.Println(fn("villians"))
 }
 
 /*
