@@ -21,6 +21,10 @@ type Vehicle interface {
 	Sentient() bool
 }
 
+type Character interface {
+	Name() string
+}
+
 // ThinkTank struct
 type ThinkTank struct {
 	Model string
@@ -41,6 +45,11 @@ func (tt *ThinkTank) Sentient() bool {
 	return true
 }
 
+// Name method
+func (tt *ThinkTank) Name() string {
+	return tt.Model
+}
+
 // Say is not an interface method
 func (tt *ThinkTank) Say() {
 	println("Hey Team!")
@@ -52,6 +61,16 @@ func main() {
 
 	// take a Vehicle interface and calls its methods
 	VehicleReport(tt)
+
+	// think tank also implements the character interface
+	println(tt.Name())
+
+	// when dealing with interfaces, it's common you'd like to take different
+	// actions depending on the interface the object implements
+	// we can use a switch
+
+	// type switch assertions
+	whatType(tt)
 }
 
 // VehicleReport printer
@@ -59,5 +78,17 @@ func VehicleReport(v Vehicle) {
 	println(v.Designation())
 	println(v.Locomotion())
 	println("Sentient?", v.Sentient())
+	// v.Name() //error
 	//v.Say() //error
+}
+
+func whatType(tt interface{}) {
+	switch tt.(type) {
+	case Vehicle:
+		println("This is a vehicle")
+	case Character:
+		println("This is a character")
+	default:
+		println("I'm not sure what the type is")
+	}
 }

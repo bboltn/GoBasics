@@ -101,6 +101,10 @@ func main() {
 	var w bool   //false
 	var e string // ''
 	println("Defaults: ", q, w, e)
+
+	// converting between types
+	f64 = float64(i)
+	//f64 = i // errors out
 }
 
 /*
