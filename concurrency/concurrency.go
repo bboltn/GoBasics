@@ -9,6 +9,7 @@ type character struct {
 	name string
 }
 
+// note: use ... to allow you to send in multipe variables of the same type
 func sendCharacters(location chan character, cs ...character) {
 	for _, c := range cs {
 		println("Sending", c.name)
